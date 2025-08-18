@@ -4,7 +4,7 @@
     align-items: center;
     height: 100vh;
     background-color: #f0f8ff;
-    font-family: Arial, sans-serif;
+    font-family: "Poppins";
   }
   
   .homepage-content {
@@ -87,4 +87,10 @@
     color: #888;
     margin-top: 20px;
   }
-  
+  .Strokelogo{
+    width: 18vw;
+
+  }
+  .h1,h2,h3{
+    font-family: "Poppins";
+  }

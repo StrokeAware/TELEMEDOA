@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "./HomePage.css";
 import { useNavigate } from "react-router-dom";
+import logo from "./image.png";
+
 function HomePage() {
   const [roomId, setRoomId] = useState("");
   const navigate = useNavigate();
+  
   const handleRoomIdGenerate = () => {
     const randomId = Math.random().toString(36).substring(2, 9);
     const timestamp = Date.now().toString().substring(-4);
@@ -17,6 +20,7 @@ function HomePage() {
     }
     navigate(`room/${roomId}?type=one-on-one`);
   };
+  
   const handleGroupCall = () => {
     if (!roomId) {
       alert("Please Generate Room Id First");
@@ -24,10 +28,12 @@ function HomePage() {
     }
     navigate(`room/${roomId}?type=group-call`);
   };
+  
   return (
     <div className="homepage-container">
       <div className="homepage-content">
-        <h1 className="homepage-title">Welcome to Video Calling App</h1>
+        <img className="Strokelogo" src={logo} alt="Stroke Sight Logo"></img>
+        <h1 className="homepage-title">Welcome to Stroke Sight telemedicine Services </h1>
         <p className="homepage-subtitle">
           Start a video call with a randomly generated Room ID
         </p>
@@ -63,4 +69,5 @@ function HomePage() {
     </div>
   );
 }
+
 export default HomePage;
