@@ -1,96 +1,66 @@
 .homepage-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f8ff;
-    font-family: "Poppins";
-  }
-  
-  .homepage-content {
-    text-align: center;
-  }
-  
-  .homepage-title {
-    font-size: 36px;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .homepage-subtitle {
-    font-size: 16px;
-    margin-bottom: 20px;
-    color: #555;
-  }
-  
-  .room-id-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .room-id-input {
-    padding: 10px;
-    margin-right: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 220px; /* Adjusted width to fit with button */
-    font-size: 16px;
-    text-align: center;
-  }
-  
-  .generate-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .generate-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .call-buttons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .call-button {
-    padding: 15px 30px;
-    margin: 0 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .call-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .call-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  .note {
-    font-size: 14px;
-    color: #888;
-    margin-top: 20px;
-  }
-  .Strokelogo{
-    width: 18vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: white;
+  font-family: "Poppins";
+}
 
-  }
-  .h1,h2,h3{
-    font-family: "Poppins";
-  }
+.homepage-card {
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 350px;
+}
+
+.homepage-logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.room-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.room-controls input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  text-align: center;
+}
+
+.room-controls button {
+  padding: 12px;
+  background: #6a11cb;
+  background: linear-gradient(135deg, #118acb 0%, #009111 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.room-controls button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
