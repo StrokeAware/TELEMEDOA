@@ -17,7 +17,7 @@ function Room() {
   // ส่งข้อความไป Python backend
   const sendToLineOA = async (message) => {
     try {
-      const response = await fetch("http://localhost:8000/send-line", {
+      const response = await fetch("/send-line", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message }),
