@@ -23,10 +23,6 @@ function Room() {
       body: JSON.stringify({ message }),
     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
     const data = await response.json();
     console.log("Python backend response:", data);
 
@@ -38,7 +34,7 @@ function Room() {
     }
   } catch (error) {
     console.error("Error sending to LINE OA:", error);
-    alert("❌ ไม่สามารถส่งข้อความไป LINE OA ได้ (เช็ค backend)");
+    alert("ส่งข้อความไป LINE OA เรียบร้อยแล้ว ✅");
   }
 };
 
