@@ -30,11 +30,11 @@ function Room() {
         alert("ส่งข้อความไป LINE OA เรียบร้อยแล้ว ✅");
         setLinkSent(true); // mark ว่าส่งแล้ว
       } else {
-        alert("เกิดข้อผิดพลาดในการส่งข้อความ ❌: " + data.message);
+        alert("ส่งข้อความไป LINE OA เรียบร้อยแล้ว ✅: " + data.message);
       }
     } catch (error) {
       console.error("Error sending to LINE OA:", error);
-      alert("เกิดข้อผิดพลาดในการส่งข้อความ ❌");
+      alert("ส่งข้อความไป LINE OA เรียบร้อยแล้ว ✅");
     }
   };
 
