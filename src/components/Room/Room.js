@@ -16,27 +16,31 @@ function Room() {
 
   // ส่งข้อความไป Python backend
   const sendToLineOA = async (message) => {
-    try {
-      const response = await fetch("/send-line", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
-      });
+  try {
+    const response = await fetch("/send-line", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message }),
+    });
 
-      const data = await response.json();
-      console.log("Python backend response:", data);
-
-      if (data.status === "success") {
-        alert("ส่งข้อความไป LINE OA เรียบร้อยแล้ว ✅");
-        setLinkSent(true); // mark ว่าส่งแล้ว
-      } else {
-        alert("ส่งข้อความไป LINE OA เรียบร้อยแล้ว ✅: " + data.message);
-      }
-    } catch (error) {
-      console.error("Error sending to LINE OA:", error);
-      alert("ส่งข้อความไป LINE OA เรียบร้อยแล้ว ✅");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  };
+
+    const data = await response.json();
+    console.log("Python backend response:", data);
+
+    if (data.status === "success") {
+      alert("ส่งข้อความไป LINE OA เรียบร้อยแล้ว ✅");
+      setLinkSent(true);
+    } else {
+      alert("❌ ส่งข้อความไป LINE OA ล้มเหลว: " + data.message);
+    }
+  } catch (error) {
+    console.error("Error sending to LINE OA:", error);
+    alert("❌ ไม่สามารถส่งข้อความไป LINE OA ได้ (เช็ค backend)");
+  }
+};
 
   // Generate link ใหม่
   const generateNewLink = () => {
