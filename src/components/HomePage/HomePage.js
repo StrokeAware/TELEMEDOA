@@ -5,14 +5,20 @@ import logo from "./image.png"; // โลโก้ของคุณ
 
 function HomePage() {
   const navigate = useNavigate();
-  const [roomId, setRoomId] = useState("");
+  const [inputRoomId, setInputRoomId] = useState("");
 
   const handleGenerateRoom = () => {
-    const randomId = Math.random().toString(36).substring(2, 9);
-    const timestamp = Date.now().toString().slice(-4);
-    const newRoomId = randomId + timestamp;
-    setRoomId(newRoomId);
-    navigate(`/room/${newRoomId}?type=one-on-one`);
+    // Redirect directly to the specific URL
+    window.location.href = "https://telemedoa-nihss-apps-projects.vercel.app/room/pjzar409314?type=one-on-one";
+  };
+
+  const handleJoinRoom = () => {
+    if (inputRoomId.trim()) {
+      // Navigate to the room with the entered ID
+      navigate(`/room/${inputRoomId.trim()}?type=one-on-one`);
+    } else {
+      alert("Please enter a valid Room ID");
+    }
   };
 
   return (
@@ -20,15 +26,35 @@ function HomePage() {
       <div className="homepage-card">
         <img src={logo} alt="Logo" className="homepage-logo" />
         <h1>Stroke Sight Telemedicine</h1>
-        <p>Start a video call by generating a Room ID</p>
+        <p>Start or join a video call</p>
+        
         <div className="room-controls">
-          <input
-            type="text"
-            placeholder="Generated Room ID"
-            value={roomId}
-            readOnly
-          />
-          <button onClick={handleGenerateRoom}>Generate & Join</button>
+          <h3>Join Default Meeting</h3>
+          <p className="meeting-description">Join the standard consultation room</p>
+          <button 
+            className="generate-join-btn"
+            onClick={handleGenerateRoom}
+          >
+            Generate & Join
+          </button>
+        </div>
+
+        <div className="room-divider">
+          <span>OR</span>
+        </div>
+
+        <div className="room-controls">
+          <h3>Join Specific Meeting</h3>
+          <div className="input-group">
+            <input
+              type="text"
+              placeholder="Enter Room ID"
+              value={inputRoomId}
+              onChange={(e) => setInputRoomId(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && handleJoinRoom()}
+            />
+            <button onClick={handleJoinRoom}>Join Meeting</button>
+          </div>
         </div>
       </div>
     </div>
